@@ -63,9 +63,9 @@ def getHolders(token_name, ca):
         lstToHold = ["address", "holding_balance", "rk"]
         lstDrop = list(set(df.columns) - set(lstToHold))
         df.drop(lstDrop, axis=1, inplace=True)
-        # if first row is lp_address, drop it
-        if df["address"].iloc[0] == lp_address[token_name]:
-            df.drop(0, inplace=True)
+        # remove the LP address row from the dataframe
+        df = df[~df["address"].str.contains(lp_address[token_name])]
+
         df.to_csv(f"{token_name}.csv", index=False)
     except Exception as e:
         print(f"An error occurred: {e}")

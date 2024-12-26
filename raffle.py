@@ -7,6 +7,18 @@ import pandas as pd
 def raffle(
     ar_file="AR.csv", alch_file="ALCH.csv", aistr_file="AISTR.csv", num_winners=100
 ):
+    """
+    Conducts a raffle based on token holdings in AR, ALCH, and AISTR.
+
+    Args:
+        ar_file (str): Path to the AR.csv file.
+        alch_file (str): Path to the ALCH.csv file.
+        aistr_file (str): Path to the AISTR.csv file.
+        num_winners (int): Number of winners to select.
+
+    Returns:
+        csv file with the winners.
+    """
 
     ar_df = pd.read_csv(ar_file)
     alch_df = pd.read_csv(alch_file)
