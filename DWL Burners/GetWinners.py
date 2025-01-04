@@ -22,7 +22,7 @@ def raffle_for_burners(snapshot_file="DWL_Burners_snapshot.csv", num_winners=100
     df["total_burned_dwl"] = df["total_burned"] / Decimal(1e18)
 
     # get guaranteed winners list // since the total amount of $DWL < 100 --> no randomiztion between those
-    guaranteed_winners = df[df["total_burned_dwl"] == 1]["sender_address"].tolist()
+    guaranteed_winners = df[df["total_burned_dwl"] >= 1]["sender_address"].tolist()
 
     # get non-guaranteed list
     raffle_pool = df[df["total_burned_dwl"] < 1]
