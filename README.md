@@ -1,13 +1,8 @@
-### RAFFLE BOT
+# RAFFLE BOT
 
-- First, collect holders data using:
+- **Two modules**:
 
-```
-python GetHolders.py
-```
+1. Getting token holders and make a weighted raffle
+2. Getting $DWL burners, separate the guaranteed ones and non-guaranteed one (weighted raffle for non-guaranteed-s)
 
-- Then, if we have the holders data, we can roll the winners:
-
-```
-python raffle.py
-```
+# :heart: daos.world
