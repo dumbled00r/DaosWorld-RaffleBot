@@ -52,6 +52,10 @@ def raffle_for_burners(snapshot_file="DWL_Burners_snapshot.csv", num_winners=100
     final_winners_df = pd.DataFrame(
         {
             "sender_address": final_winners,
+            "total_burned_dwl": [
+                df[df["sender_address"] == addr]["total_burned_dwl"].values[0]
+                for addr in final_winners
+            ],
             "win_type": [
                 "guaranteed" if addr in guaranteed_winners else "raffle"
                 for addr in final_winners
