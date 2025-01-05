@@ -29,7 +29,7 @@ def raffle_for_burners(snapshot_file="DWL_Burners_snapshot.csv", num_winners=100
 
     weighted_entries = []
     for _, row in raffle_pool.iterrows():
-        entries = int(row["total_burned_dwl"] * 100)  # Scaling
+        entries = int(row["total_burned_dwl"] * 100)
         weighted_entries.extend([row["sender_address"]] * entries)
 
     weighted_entries = list(set(weighted_entries))
